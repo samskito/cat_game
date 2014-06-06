@@ -14,18 +14,18 @@ public class BreadProperties : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D otherCollider) {
+		var newBread = Instantiate(breadPrefab) as Transform;
+		BreadMovement move = newBread.gameObject.GetComponent<BreadMovement>();
+		
+		newBread.position = defaultPosition;
 		Destroy(gameObject);
 	}
 
 	// When bread is destroyed
 	void OnDisable() {
-		var newBread = Instantiate(breadPrefab) as Transform;
-		BreadMovement move = newBread.gameObject.GetComponent<BreadMovement>();
 
-		newBread.position = defaultPosition;
-		newBread.gameObject.AddComponent(Rigidbody);
-
-		Debug.Log(move);	
+		//newBread.gameObject.AddComponent(Rigidbody);
+		//Debug.Log(move);	
 		//move.direction = this.transform.right;
 	}
 }
