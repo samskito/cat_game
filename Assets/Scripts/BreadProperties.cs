@@ -6,7 +6,7 @@ public class BreadProperties : MonoBehaviour {
 	public bool isTaken = false;
 
 	public Vector2 defaultPosition = new Vector2(3.524438f, 0.06457932f);
-	public GameObject breadPrefab;
+	public Transform breadPrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -19,10 +19,13 @@ public class BreadProperties : MonoBehaviour {
 
 	// When bread is destroyed
 	void OnDisable() {
-		//Rigidbody newBread = (Rigidbody) Instantiate(breadPrefab);
-		GameObject newBread = (GameObject)Resources.Load("/Prefabs/piece_of_bread");
-		//var BreadMovement = GetComponent<BreadMovement>();
-		newBread.transform.position = defaultPosition;
-		//newBread.velocity = BreadMovement.movement;
+		var newBread = Instantiate(breadPrefab) as Transform;
+		BreadMovement move = newBread.gameObject.GetComponent<BreadMovement>();
+
+		newBread.position = defaultPosition;
+		newBread.gameObject.AddComponent(Rigidbody);
+
+		Debug.Log(move);	
+		//move.direction = this.transform.right;
 	}
 }
