@@ -51,6 +51,8 @@
      <Compile Include="Assets\Scripts\CatLife.cs" />
      <Compile Include="Assets\Scripts\CatLifeLabel.cs" />
      <Compile Include="Assets\Scripts\CatMovement.cs" />
+     <Compile Include="Assets\Scripts\RendererExtensions.cs.cs" />
+     <Compile Include="Assets\Scripts\ScrollingScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
